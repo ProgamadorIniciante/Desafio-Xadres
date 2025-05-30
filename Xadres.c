@@ -1,80 +1,46 @@
-#include <stdio.h>
-
-void movimentotorre(int numero)// recursividade dos movimentos da torre.
-{
-    if (numero >= 1)
-    {
-        movimentotorre(numero - 1);// movimento que tira -1 a cada ação da torre.
-        printf("Direita\n");
-    }   
-}
-
-void movimentorainha(int numero)// recursividade para os movimentos da rainha.
-{
-    if (numero >=1)
-    {
-        movimentorainha(numero -1);// movimento que tira -1 a cada ação da rainha.
-        printf("Esquerda\n");
-    }
-    
-}
-
-void movimentobispo(int numero)// recursividade para os movimentos da bispo.
-{
-    int bispoV, bispoH;// variável para o bispo
-    // loop aninhado para o bispo se mover para as diagonais.
-    for (bispoV = 1; bispoV <= 5; bispoV++)// loop para o bispo mover para cima 5 vezes.
-    {
-        for (bispoH = 0; bispoH <= 1; bispoH++)// loop para o bispo se mover uma vez.
-        {
-            printf("Direita ");// printf para o bispo se mover.
-            break;
-        }
-        printf("Cima\n");// printf para o bispo se mover.
+// Função recursiva para simular o movimento da torre
+void moverTorre(int passos) {
+    if (passos > 0) {
+        moverTorre(passos - 1);
+        printf("Movendo para a direita\n");
     }
 }
 
+// Função recursiva para simular o movimento da rainha
+void moverRainha(int passos) {
+    if (passos > 0) {
+        moverRainha(passos - 1);
+        printf("Movendo para a esquerda\n");
+    }
+}
+
+// Movimento diagonal do bispo
+void moverBispo() {
+    for (int i = 0; i < 5; i++) {
+        printf("Diagonal para cima e direita\n");
+    }
+}
+
+// Movimento típico de cavalo (em L)
+void moverCavalo() {
+    for (int i = 0; i < 1; i++) {
+        printf("Pulando duas casas para cima\n");
+        printf("E uma para a direita\n");
+    }
+}
 
 int main() {
-    
-    printf("Torre: \n");
+    printf("Movimentos da Torre:\n");
+    moverTorre(5);
 
-    // loop de recursividade da torre.
-    int torre = 5;
-    movimentotorre(torre);
-    
-    printf("\n");
+    printf("\nMovimentos do Bispo:\n");
+    moverBispo();
 
-    int bispo; // variável do bispo
-    // recursividade para bispo.
-    printf("Bispo: \n");
-    movimentobispo(bispo);
+    printf("\nMovimentos da Rainha:\n");
+    moverRainha(8);
 
-    printf("\n");
+    printf("\nMovimentos do Cavalo:\n");
+    moverCavalo();
 
-    int rainha = 8;// variável da rainha.
-    // recursividade da rainha.
-    printf("Rainha: \n");
-    movimentorainha(rainha);
-
-    printf("\n");
-
-    printf("Cavalo: \n");
-
-    int cavaloV = 0, cavaloH = 0;
-    // loop aninhados do cavalo.
-    while (cavaloH <= 1)// loop para o cavalo ir para a direita somente 1 vez.
-    {
-        do//loop para o cavalo ir para cima somente 2 vezes.
-        {
-            printf("Cima\n");// printf para o cavalo se movimentar.
-            cavaloV++;
-        } while (cavaloV <= 1);
-
-        printf("Direita\n");// printf para o cavalo se movimentar.
-        cavaloH++;
-        break;
-    }
- 
     return 0;
 }
