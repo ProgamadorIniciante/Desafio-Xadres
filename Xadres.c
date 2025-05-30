@@ -67,11 +67,11 @@ int main() {
     {
         do//loop para o cavalo ir para cima somente 2 vezes.
         {
-            printf("Cima\n");// printf para o cavala se movimentar.
+            printf("Cima\n");// printf para o cavalo se movimentar.
             cavaloV++;
         } while (cavaloV <= 1);
 
-        printf("Direita\n");// printf para o cavala se movimentar.
+        printf("Direita\n");// printf para o cavalo se movimentar.
         cavaloH++;
         break;
     }
